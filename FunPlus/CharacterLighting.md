@@ -1,5 +1,9 @@
 # Character Lighting
 
+[toc]
+
+
+
 ## 概要
 在NPR渲染中，我们常常需要为每个角色提供自己的光照方向、颜色与阴影。借助Unity UniversalRP，我们制作了一套通用Character Lighting方案。资源位于[渲染中台工作仓库](https://gitlab-sh.funplus.io/client_engine/RendererDemo)中**NPRDemo01**。
 如下：**Character Lighting OFF** V.S. **Character Lighting ON**
@@ -13,11 +17,11 @@
 ## 使用流程（面向项目)
 ### 1. 配置 Universal RP 
 * 参考**NPRDemo01/Settings/NprDemo01.asset**（URP Asset）去配置**Shadow Renderer**
- 
+
 ![img](https://app.yinxiang.com/FileSharing.action?hash=1/f29a5eec7572d7d7fda0a3c7de3161f3-12645)
 
  ![img](https://app.yinxiang.com/FileSharing.action?hash=1/184b9d945e7683b1455b2acc0d7938ee-33801)
- 
+
  上图配置表明，在ShadowRenderer阶段，只绘制标记为**Character**的物体，使用ShadowEncoder重载，生成ShadowMap
 ### 2. 创建RenderTexture
 * 创建合适大小的RenderTexture。此处之所以Color Format为**RGBA8**，是因为UniversalRP原生不支持depth only的RT作为shader的输入。因此，我们需要将模型的32f深度，编码为RGBA8。
